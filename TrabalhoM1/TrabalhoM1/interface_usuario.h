@@ -4,16 +4,16 @@
 #define INTERFACE_USUARIO_H
 #include<iostream>
 using namespace std;
-#define TAMANHO_MATRIZ 3;
+#define TAMANHO_MATRIZ 3
 
-void imprimeMatriz(char matriz[][]) {
-
+void imprime() {
+	int matriz[3][3];
 	int i, j;
 
 	for (i = 0; i < TAMANHO_MATRIZ; i++) {
 		for (j = 0; j < TAMANHO_MATRIZ; j++) {
 
-			matriz[i][j] = " ";
+			matriz[i][j] = 1;
 		}
 
 

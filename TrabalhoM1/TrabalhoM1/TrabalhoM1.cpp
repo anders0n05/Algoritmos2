@@ -3,11 +3,13 @@
 #include "interface_usuario.h"
 #include "stdafx.h"
 #include <iostream>
-
+using namespace std;
 int main()
 {   
+	int matriz[3][3] = { 0 };
 
-	imprimeMatriz(char matriz[TAMANHO_MATRIZ][TAMANHO_MATRIZ]);
-    return 0;
+	imprime();
+	std::cout << " ";
+	 return 0;
 }
 
