@@ -1,4 +1,4 @@
-//BIBLIOTECA RESPONSAVEL COM INTERAÇAO DO USUARIO.
+/*
 
 #ifndef INTERFACE_USUARIO_H
 #define INTERFACE_USUARIO_H
@@ -7,11 +7,11 @@
 using namespace std;
 #define TAMANHO_MATRIZ 3
 
-void letra_escolhida(char play1, char play2) {//RESPONSAVEL POR ATRIBUIR LETRA AO JOGADORES
-	/*string nome1, nome2;
+void letra_escolhida(char play1, char play2) {RESPONSAVEL POR ATRIBUIR LETRA AO JOGADORES
+	string nome1, nome2;
 	cout <<"Digite o nome dos jogadores" << endl;
 	getline(cin,nome1);
-	getline(cin, nome2);*/ 
+	getline(cin, nome2);
 	cout << "Escolha uma letra 'x' ou 'o' " << endl;
 	cin.getline (play1);
 	cin.getline(play2);
@@ -43,3 +43,4 @@ void letra_escolhida(char play1, char play2) {//RESPONSAVEL POR ATRIBUIR LETRA A
 
 
 #endif
+*/
