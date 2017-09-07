@@ -11,7 +11,7 @@ void imprimeMatriz(char matriz[][]) {
 	int i, j;
 
 	for (i = 0; i < TAMANHO_MATRIZ; i++) {
-		for (i = 0; i < TAMANHO_MATRIZ; i++) {
+		for (j = 0; j < TAMANHO_MATRIZ; j++) {
 
 			matriz[i][j] = " ";
 		}
@@ -20,9 +20,9 @@ void imprimeMatriz(char matriz[][]) {
 	}
 
 	for (i = 0; i < TAMANHO_MATRIZ; i++) {
-		for (i = 0; i < TAMANHO_MATRIZ; i++) {
+		for (j = 0; j < TAMANHO_MATRIZ; j++) {
 
-			cout << " | " << matriz[i][j]endl;
+			cout << " | " << matriz[i][j]<<endl;
 		}
 
 
