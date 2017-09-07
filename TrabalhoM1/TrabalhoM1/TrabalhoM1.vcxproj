@@ -145,6 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="multiplayer.h" />
     <ClInclude Include="interface_usuario.h" />
     <ClInclude Include="operacional.h" />
     <ClInclude Include="stdafx.h" />
