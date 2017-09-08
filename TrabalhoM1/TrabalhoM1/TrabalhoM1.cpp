@@ -7,18 +7,21 @@
 using namespace std;
 int main()
 {   
+	
 	int menu=0;
-
+	char matriz[TAMANHO][TAMANHO],play1,play2;
 	cin >> menu;
 	switch (menu) {
 	case 1:
-
 		
-
+		exibir_matriz_vazia();
+		
+		escolher_posicao();
+		
 	case 2:
 
 		
-
+		break;
 	default:
 		cout << "Opção invalida";
 	}
