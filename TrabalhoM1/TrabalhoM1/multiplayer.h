@@ -10,49 +10,185 @@ using namespace std;
 #define TAMANHO_MATRIZ 3
 #include"operacional.h"
 
-void exibir_matriz_vazia() {
-	char matriz[TAMANHO][TAMANHO];
-	int i, j;
-		inicializar_matriz(matriz);
 
-	for (int i = 0; i < TAMANHO; i++) {
-		for (int j = 0; j < TAMANHO; j++) {
 
-			cout << matriz[i][j];
-			
-		}
-		
 
+void desenha_matriz_jogo(char matriz_jogo[TAMANHO][TAMANHO]) {
+	cout << matriz_jogo[0][0] << " |" << matriz_jogo[0][1] << " |" << matriz_jogo[0][2] << endl;
+	cout << "--------" << endl;
+	cout << matriz_jogo[1][0] << " |" << matriz_jogo[1][1] << " |" << matriz_jogo[1][2] << endl;
+	cout << "--------" << endl;
+	cout << matriz_jogo[2][0] << " |" << matriz_jogo[2][1] << " |" << matriz_jogo[2][2] << endl;
+	
+}
+bool verifica_diagonal_principal(char matriz_jogo[TAMANHO][TAMANHO]) {
+
+	if ((matriz_jogo[0][0] == matriz_jogo[1][1]) && (matriz_jogo[1][1] == matriz_jogo[2][2]) && (matriz_jogo[0][0] != ' ')) {
+
+		return true;
 	}
+	else {
+		return false;
+	}
+
+}
+bool verifica_diagonal_secundaria(char matriz_jogo[TAMANHO][TAMANHO]) {
+	if ((matriz_jogo[0][2] == matriz_jogo[1][1]) && (matriz_jogo[1][1] == matriz_jogo[2][0]) && (matriz_jogo[0][2] != ' ')) {
+
+		return true;
+	}
+	else {
+		return false;
+	}
+
+
+}
+bool verifica_verticais(char matriz_jogo[TAMANHO][TAMANHO]) {
+	if ((matriz_jogo[0][0] == matriz_jogo[1][0]) && (matriz_jogo[1][0] == matriz_jogo[2][0]) && (matriz_jogo[0][0] != ' ')) {
+
+		return true;
+	}
+	
+	if  ((matriz_jogo[0][1] == matriz_jogo[1][1]) && (matriz_jogo[1][1] == matriz_jogo[2][1]) && (matriz_jogo[0][1] != ' ')) {
+
+		return true;
+	}
+	if  ((matriz_jogo[0][2] == matriz_jogo[1][2]) && (matriz_jogo[1][2] == matriz_jogo[2][2]) && (matriz_jogo[0][2] != ' ')) {
+
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+bool verifica_horizontais(char matriz_jogo[TAMANHO][TAMANHO]) {
+	if ((matriz_jogo[0][0] == matriz_jogo[0][1]) && (matriz_jogo[0][1] == matriz_jogo[0][2])&&(matriz_jogo[0][0]!=' ')) {
+
+		return true;
+	}
+
+	if ((matriz_jogo[1][0] == matriz_jogo[1][1]) && (matriz_jogo[1][1] == matriz_jogo[1][2])&&(matriz_jogo[1][0]!=' ') ){
+
+		return true;
+	}
+	if  ((matriz_jogo[2][0] == matriz_jogo[2][1]) && (matriz_jogo[2][1] == matriz_jogo[2][2])&&(matriz_jogo[2][0]!=' ')) {
+
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+	
+bool verifica_jogo(char matriz_jogo[TAMANHO][TAMANHO]) {
+	
+		
+	if (verifica_diagonal_principal(matriz_jogo) == true) {
+
+		return true;
+	}
+	if (verifica_diagonal_secundaria(matriz_jogo) == true) {
+
+		return true;
+	}
+	if (verifica_verticais(matriz_jogo) == true) {
+
+		return true;
+	}
+	if (verifica_horizontais(matriz_jogo) == true) {
+
+		return true;
+	}
+
+	else {
+		return false;
+	}
+
+
+
+}
+void mensagem() {
+	system("cls");
+	cout << "Ganhouuuuuuuu";
 }
 
+int altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
+	int coluna, linha, jogada = 1, conta_jogo;
+	bool controla_jogo = false, encerra = false;
 
+	do {
+		if (jogada == 1) {
+			while (controla_jogo == false) {
 
-void escolher_posicao() {
+				cout << "Escolha linha e coluna:";
+				cin >> linha >> coluna;
+				if (matriz_jogo[linha][coluna] == ' ') {
+					matriz_jogo[linha][coluna] = 'X';
+					controla_jogo = true;
+					jogada = 2;
+					desenha_matriz_jogo(matriz_jogo);
+					if (verifica_jogo(matriz_jogo) == true) {
+						mensagem();
+						conta_jogo = 9;
+						return conta_jogo;
+						
+						
+					}
+					else {
+						cout << "Posicao ja preenchida";
+					}
+					conta_jogo++;
 
-	char matriz[TAMANHO][TAMANHO], play1, play2;
-	int jogada = 1;
-	bool verifica = false;
-	int i, j;
-	inicializar_matriz(matriz);
-	atribui_letra(play1, play2);
-
-	for (int i = 0; i < TAMANHO; i++) {
-		for (int j = 0; j < TAMANHO; j++) {
-			cin >> i >> j;
-			if (matriz[i][j] == 'q') {
-				
-				matriz[i][j] = play1;
-				inicializar_matriz(matriz);
-
+				}
 			}
-			else {
-				cout << "daaaaa";
-			}
-
 		}
+		else if (jogada == 2) {
+
+			while (controla_jogo == true) {
+				cout << "Escolha linha e coluna:";
+				cin >> linha >> coluna;
+				if (matriz_jogo[linha][coluna] == ' ') {
+					matriz_jogo[linha][coluna] = '0';
+					controla_jogo = false;
+					jogada = 1;
+					desenha_matriz_jogo(matriz_jogo);
+					if (verifica_jogo(matriz_jogo) == true) {
+						mensagem();
+						conta_jogo = 9;
+						return conta_jogo;
+
+
+					}
+				}
+				else {
+					cout << "Posicao ja preenchida";
+				}
+			}
+			conta_jogo++;
+		}
+
+
 		
-	}
+
+
+
+
+
+
+	} while (conta_jogo < 9 && conta_jogo!=9);
+
+
+
+}
+
+void mensagem_final() {
+
+	
+
+
+
 
 }
 
