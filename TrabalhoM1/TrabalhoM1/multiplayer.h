@@ -5,7 +5,7 @@
 
 #include<string>
 #include<iostream>
-#include<string.h>
+
 using namespace std;
 #define TAMANHO_MATRIZ 3
 #include"operacional.h"
@@ -14,11 +14,13 @@ using namespace std;
 
 
 void desenha_matriz_jogo(char matriz_jogo[TAMANHO][TAMANHO]) {
-	cout << matriz_jogo[0][0] << " |" << matriz_jogo[0][1] << " |" << matriz_jogo[0][2] << endl;
-	cout << "--------" << endl;
-	cout << matriz_jogo[1][0] << " |" << matriz_jogo[1][1] << " |" << matriz_jogo[1][2] << endl;
-	cout << "--------" << endl;
-	cout << matriz_jogo[2][0] << " |" << matriz_jogo[2][1] << " |" << matriz_jogo[2][2] << endl;
+	cout <<"  0   1   2";
+	cout << endl << endl;
+	cout <<"0"<< "  "<< matriz_jogo[0][0] << "|" << matriz_jogo[0][1] << " |" << matriz_jogo[0][2] << endl;
+	cout << "  --------" << endl;
+	cout <<"1"<< "  "<< matriz_jogo[1][0] << "|" << matriz_jogo[1][1] << " |" << matriz_jogo[1][2] << endl;
+	cout << "  --------" << endl;
+	cout <<"2"<< "  "<< matriz_jogo[2][0] << "|" << matriz_jogo[2][1] << " |" << matriz_jogo[2][2] << endl;
 	
 }
 bool verifica_diagonal_principal(char matriz_jogo[TAMANHO][TAMANHO]) {
@@ -112,157 +114,183 @@ bool verifica_jogo(char matriz_jogo[TAMANHO][TAMANHO]) {
 void mensagem_ganhador(string &ganhador) {
 	cout << endl << endl;
 	
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||===========================================||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||                                           ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||   Parabens o " << ganhador<<"ganhou o jogo||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||                                           ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||===========================================||";
+	system("cls");
+	cout << endl << endl;
+	cout << "\t\t\t\t||   Parabens o " <<ganhador<<"ganhou o jogo||";
+	
 	
 
 
 }
-void mensagem_menu() {
+void mensagem_menu_sair() {
 	cout << endl << endl;
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||===========================================||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||              Deseja Sair?                 ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||  [1] Para sair                            ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||  [2] Jogar novamente                      ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||===========================================||";
+	
+	cout << "\t\t\Deseja Sair?";
+	cout << "\t\t\[1] Para sair";
+	cout << "\t\t\[2] Jogar novamente";
+	
 }
 void mensagem_sair() {
 
 	cout << endl << endl;
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||===========================================||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||               Ate Mais;                   ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||           Desenvolvido por:               ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||	       Anderson Willian                ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||===========================================||";
+	system("cls");
+	cout << " BYE";
 
 
+}
+void tela_menu() {
+	cout <<"\t\t\t\t\t=============================";
+	cout << endl;
+	cout <<"\t\t\t\t\t||Bem vindo ao jogo da Velha||";
+	cout << endl;
+	cout <<"\t\t\t\t\t||   Escolha uma opcao:     ||";
+	cout << endl;
+	cout << "\t\t\t\t\t||[1] Multiplayer;          ||";
+	cout << endl;
+	cout << "\t\t\t\t\t||[2] Jogar contra Maquina  ||";
+	cout << endl;
+	cout << "\t\t\t\t\t=============================";
+	cout << endl;
+	
 
 }
 
 void mensagem_velha() {
 	cout << endl << endl;
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||===========================================||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||               x        x                  ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||                    x                      ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||	              Deu Velha!               ||";
-	cout << "\t\t\t\t\t\t\t\t\t\t\t\t\||===========================================||";
+	system("cls");
+	cout << "\n\t\tDeu velha, sejam mais esperto na proxima :p";
+
+
+}
+
+
+void nome_jogadores(string &jogador1, string &jogador2) {
+	cout << "\t\t\t\t\t=============================";
+	cout << endl;
+	cout << "\t\t\t\t\t||Digite o nome do jogadores||";
+	cout << endl;
+	cout << "\t\t\t\t\t=============================";
+	cout << endl;
+
+	
+	cin >> jogador1;
+	cout << endl;	
+	cin >> jogador2;
+	
+
 
 
 }
 
 bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
-	int coluna, linha, jogada = 1, controla_jogo=false;
-	bool controla_vez = false, encerra = false;
-	string ganhador;//fazer um jeito de exibir o ganhador;
-	do {
-		if (jogada == 1) {
-			while (controla_vez == false) {
-
-				cout << "Escolha linha e coluna:";
-				cin >> linha >> coluna;
-				if (matriz_jogo[linha][coluna] == ' ') {
-					matriz_jogo[linha][coluna] = 'X';
-					controla_vez = true;
-					jogada = 2;
+	int coluna, linha, controla_jogo = false, velha = 0;
+	bool controla_vez = false, encerra = false, jogada = false;
+	string jogador1,jogador2;//fazer um jeito de exibir o ganhador;
+	nome_jogadores(jogador1, jogador2);
+	
+		do {
+			if (jogada == false) {
+				while (controla_vez == false) {
+					system("cls");
 					desenha_matriz_jogo(matriz_jogo);
-					if (verifica_jogo(matriz_jogo) == true) {
+					cout << endl << endl;
+					
+					cout << "Escolha linha e coluna:";
+					cin >> linha >> coluna;
+					if (matriz_jogo[linha][coluna] == ' ') {
+						matriz_jogo[linha][coluna] = 'X';
+						controla_vez = true;
+						jogada = true;
+						system("cls");
+						desenha_matriz_jogo(matriz_jogo);
+						if (verifica_jogo(matriz_jogo) == true) {
 
-						mensagem_ganhador(ganhador);
-						controla_jogo = true;
-						return true;
+							mensagem_ganhador(jogador1);
+							controla_jogo = true;
+							return true;
+						}
+
+						else {
+							velha++;
+						}
 					}
 
-					else {
-						//fazer um jeito para verificar quando deu velha,algo como um contador ate nove
+					else if (matriz_jogo[linha][coluna] != ' ') {
+						cout << endl;
+						cout << "Posicao ja preenchida";
+						controla_jogo = false;
+						
 					}
-				}
 
-				else if (matriz_jogo[linha][coluna] != ' ') {
-					cout << endl;
-					cout << "Posicao ja preenchida";
-					controla_jogo = false;
-				}
 
+				}
 
 			}
-
-		}
-			else if (jogada == 2) {
+			else  {
 
 				while (controla_vez == true) {
 					cout << endl;
 					cout << "Escolha linha e coluna:";
 					cin >> linha >> coluna;
-						if (matriz_jogo[linha][coluna] == ' ') {
+					if (matriz_jogo[linha][coluna] == ' ') {
 						matriz_jogo[linha][coluna] = 'O';
 						controla_vez = false;
-						jogada = 1;
+						jogada = false;
+						system("cls");
 						desenha_matriz_jogo(matriz_jogo);
-								if (verifica_jogo(matriz_jogo) == true) {
-									mensagem_ganhador(ganhador);
-									controla_jogo = true;
-									return true;
+						if (verifica_jogo(matriz_jogo) == true) {
+							mensagem_ganhador(jogador2);
+							controla_jogo = true;
+							return true;
 
 
-								}
-								else {
-									
-								//fazer um jeito para verificar quando deu velha,algo como um contador ate nove
-								}
 						}
 						else {
-							cout << endl;
-							cout << "Posicao ja preenchida";
-							controla_jogo = false;
+
+							velha++;
 						}
+					}
+					else {
+						cout << endl;
+						cout << "Posicao ja preenchida";
+						controla_jogo = false;
+					}
 				}
-			
+
+			}
+			if (velha == 9) {
+
+				cout << " vish mano deu velha!";
+				controla_jogo = true;
 			}
 
 
+		} while (controla_jogo==false);
 		
+		
+	
+
+		return false;
 
 
-
-
-
-
-	} while (controla_jogo==false);
+	
 
 
 
 }
 
-bool opcao_jogar_novamente(char matriz_jogo[TAMANHO][TAMANHO]) {
+void opcao_jogar_novamente(char matriz_jogo[TAMANHO][TAMANHO]) {
 
 	int opcao;
-	
-	if (altera_matriz(matriz_jogo) == true || !altera_matriz(matriz_jogo)) {
-		mensagem_menu();
-		cout << endl;
-		cin >> opcao;
-		switch (opcao) {
-		case 1:
-		system("cls");
-		mensagem_sair();
-		system("exit");
-		return true;
-		break;
-		case 2:
-		return false;
-		break;
-		default:
-			cout << "Opcao invalida";
-			opcao_jogar_novamente(matriz_jogo);
-			break;
 
-		}
-		
+
+	altera_matriz(matriz_jogo);
+	if (verifica_jogo(matriz_jogo) == true) {
+
+		cout << "parabens";
 	}
-
+	
+	
 
 
 }

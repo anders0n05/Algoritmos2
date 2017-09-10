@@ -10,28 +10,30 @@ char matriz_jogo[TAMANHO][TAMANHO] = { ' ',' ',' ', ' ',' ', ' ',' ',' ', ' ' };
 
 int main()
 {   
-	
+	string jogador1, jogador2;
 	int menu = 0;
-	cout << "Digite '1' para jogar multiplayer e '2' para jogar contra CPU: " << endl;
+	tela_menu();
 	cin >> menu;
 	switch (menu) {
 	case 1:
 		//arrumar esse menu
 		altera_matriz(matriz_jogo);
-		opcao_jogar_novamente(matriz_jogo);
-		if (!opcao_jogar_novamente(matriz_jogo)) {
-
-			 main();
-		}
-
+	//	opcao_jogar_novamente(matriz_jogo);
 		
+		//desenha_matriz_jogo(matriz_jogo);
+		//nome_jogadores(jogador1,jogador2);
         
 	case 2:
 
 		
 		break;
 	default:
-		cout << "Opção invalida";
+		cout << endl;
+		cout << "Opcao invalida voce deve escolher uma opcao entre 1 e 2";
+		cout << endl;
+		system("pause");
+		system("cls");
+		 main();
 	}
 }
 

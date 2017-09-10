@@ -12,11 +12,7 @@ using namespace std;
 	
 
 
-void atribui_letra(char &play1, char &play2) {
-	play1 = 'X';
-	play2 = 'O';
 
-}
 
 
 
