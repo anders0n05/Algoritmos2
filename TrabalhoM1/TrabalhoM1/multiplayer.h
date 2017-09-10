@@ -181,7 +181,23 @@ void nome_jogadores(string &jogador1, string &jogador2) {
 
 
 }
+void valida_jogada(int linha,int coluna) {
 
+	do {
+		cout << "Escolha linha e coluna:";
+		cin >> linha >> coluna;
+		if ((linha > 2 || linha < 0) || (coluna > 2 || coluna < 0)) {
+
+			system("cls");
+			cout << "Voce digitou uma posicao invalida";
+			cout << "endl";
+
+		}
+	} while ((linha > 2 || linha < 0) || (coluna > 2 || coluna < 0));
+		
+	
+
+}
 bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 	int coluna, linha, controla_jogo = false, velha = 0;
 	bool controla_vez = false, encerra = false, jogada = false;
@@ -194,9 +210,8 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 					system("cls");
 					desenha_matriz_jogo(matriz_jogo);
 					cout << endl << endl;
+					valida_jogada(linha,coluna);
 					
-					cout << "Escolha linha e coluna:";
-					cin >> linha >> coluna;
 					if (matriz_jogo[linha][coluna] == ' ') {
 						matriz_jogo[linha][coluna] = 'X';
 						controla_vez = true;
@@ -232,6 +247,7 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 					cout << endl;
 					cout << "Escolha linha e coluna:";
 					cin >> linha >> coluna;
+					valida_jogada(linha, coluna);
 					if (matriz_jogo[linha][coluna] == ' ') {
 						matriz_jogo[linha][coluna] = 'O';
 						controla_vez = false;
