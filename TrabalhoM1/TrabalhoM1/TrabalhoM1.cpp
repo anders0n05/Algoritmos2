@@ -16,39 +16,16 @@ int main()
 	cin >> menu;
 	switch (menu) {
 	case 1:
-		
-		
-         //desenha_matriz_jogo(matriz_jogo);
+		//arrumar esse menu
 		altera_matriz(matriz_jogo);
-		if (altera_matriz(matriz_jogo) == 9) {
+		opcao_jogar_novamente(matriz_jogo);
+		if (!opcao_jogar_novamente(matriz_jogo)) {
 
-			char opcao;
-			cout << "Voce deseja jogar novamente:[S]/[N] ";
-			cin >> opcao;
+			 main();
+		}
 
-			switch (opcao)
-			{
-			case 's' || 'S':
-				system("cls");
-				main();
-				break;
-			case'n':
-				system("cls");
-				system("exit");
-				break;
-			default:
-
-
-
-				break;
-			}
-		 }
-
-		//verifica_jogo(matriz_jogo);
-		//inicializar_matriz(matriz);
-		//escolher_posicao(matriz);
-		system("pause");
 		
+        
 	case 2:
 
 		
