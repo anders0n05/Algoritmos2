@@ -19,13 +19,15 @@ int main()
 		//arrumar esse menu
 		
 		
-		altera_matriz(matriz_jogo);
+		jogar_multiplayer(matriz_jogo);
 		
 		
 		
 		
         
 	case 2:
+
+		jogar_contra_maquina(matriz_jogo);
 
 		
 		break;

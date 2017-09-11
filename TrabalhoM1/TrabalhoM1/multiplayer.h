@@ -264,7 +264,7 @@ void valida_jogada(int &linha,int &coluna) {
 
 }
 
-bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
+void jogar_multiplayer(char matriz_jogo[TAMANHO][TAMANHO]) {
 	int coluna, linha, controla_jogo = false, velha = 0;
 	bool controla_vez = false, encerra = false, jogada = false;
 	string jogador1,jogador2;//fazer um jeito de exibir o ganhador;
@@ -289,7 +289,7 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 							mensagem_ganhador(jogador1);
 							opcao_jogar_novamente(matriz_jogo);
 							controla_jogo= true;
-							return true;
+							//return true;
 						}
 
 						else {
@@ -329,7 +329,7 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 							mensagem_ganhador(jogador2);
 							opcao_jogar_novamente(matriz_jogo);
 							controla_jogo = true;
-							return true;
+							//return true;
 							
 
 						}
@@ -355,7 +355,7 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 				
 				opcao_jogar_novamente(matriz_jogo);
 				controla_jogo = true;
-				return true;
+				//return true;
 			}
 
 
@@ -374,8 +374,80 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 }
 
 
+void jogar_contra_maquina(char matriz_jogo[TAMANHO][TAMANHO]) {
+	int coluna, linha, controla_jogo = false, velha = 0;
+	bool controla_vez = false, encerra = false, jogada = false;
+	string jogador1, jogador2;//essa funcao foi copiada da outra, entao tem q arrumar
+	nome_jogadores(jogador1, jogador2);
 
-	
+	do {
+		if (jogada == false) {
+			while (controla_vez == false) {//compuatador comeca jogadno com X
+
+			}
+
+		}
+		else {
+
+			while (controla_vez == true) {
+				cout << endl;
+
+				valida_jogada(linha, coluna);
+
+
+				if (matriz_jogo[linha][coluna] == ' ') {
+					matriz_jogo[linha][coluna] = 'O';
+					controla_vez = false;
+					jogada = false;
+					system("cls");
+					desenha_matriz_jogo(matriz_jogo);
+					if (verifica_jogo(matriz_jogo) == true) {
+						mensagem_ganhador(jogador2);
+						opcao_jogar_novamente(matriz_jogo);
+						controla_jogo = true;
+						//return true;
+
+
+					}
+					else {
+
+						velha++;
+					}
+				}
+				else if (matriz_jogo[linha][coluna] != ' ') {
+					cout << endl;
+					cout << "Posicao ja preenchida";
+					cout << endl;
+
+					controla_vez = true;
+					controla_jogo = false;
+				}
+			}
+
+		}
+		if (velha == 9) {
+
+			mensagem_velha();
+
+			opcao_jogar_novamente(matriz_jogo);
+			controla_jogo = true;
+			//return true;
+		}
+
+
+	} while (controla_jogo == false);
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 
