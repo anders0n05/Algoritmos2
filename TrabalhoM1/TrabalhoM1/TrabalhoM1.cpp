@@ -18,6 +18,7 @@ int main()
 	case 1:
 		//arrumar esse menu
 		altera_matriz(matriz_jogo);
+		
 	//	opcao_jogar_novamente(matriz_jogo);
 		
 		//desenha_matriz_jogo(matriz_jogo);
