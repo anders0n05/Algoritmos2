@@ -27,7 +27,7 @@
     <ClInclude Include="interface_usuario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="multiplayer.h">
+    <ClInclude Include="funcionamento.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

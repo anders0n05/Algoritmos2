@@ -2,7 +2,7 @@
 //
 #include "interface_usuario.h"
 #include "stdafx.h"
-#include"multiplayer.h" 
+#include"funcionamento.h" 
 #include <iostream>
 using namespace std;
 
