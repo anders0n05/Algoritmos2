@@ -10,19 +10,20 @@ char matriz_jogo[TAMANHO][TAMANHO] = { ' ',' ',' ', ' ',' ', ' ',' ',' ', ' ' };
 
 int main()
 {   
-	string jogador1, jogador2;
-	int menu = 0;
+	
+	int menu = 0,opcao;
 	tela_menu();
 	cin >> menu;
 	switch (menu) {
 	case 1:
 		//arrumar esse menu
+		
+		
 		altera_matriz(matriz_jogo);
 		
-	//	opcao_jogar_novamente(matriz_jogo);
 		
-		//desenha_matriz_jogo(matriz_jogo);
-		//nome_jogadores(jogador1,jogador2);
+		
+		
         
 	case 2:
 

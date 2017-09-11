@@ -113,11 +113,14 @@ bool verifica_jogo(char matriz_jogo[TAMANHO][TAMANHO]) {
 }
 void mensagem_ganhador(string &ganhador) {
 	cout << endl << endl;
-	
-	
-	cout << endl << endl;
-	cout << "\t\t\t\t||   Parabens o " <<ganhador<<" ganhou o jogo||";
-	
+	cout << "\t\t\t\t\t=============================";
+	cout << endl;
+	cout << "\t\t\t\t\t  Parabens " << ganhador;
+	cout << endl;
+	cout << "\t\t\t\t\t  Voce Venceu";
+	cout << endl;
+	cout << "\t\t\t\t\t=============================";
+	cout << endl;
 	
 
 
@@ -157,7 +160,7 @@ void tela_menu() {
 
 void mensagem_velha() {
 	cout << endl << endl;
-	system("cls");
+	
 	cout << "\n\t\tDeu velha, sejam mais esperto na proxima :p";
 
 
@@ -185,7 +188,7 @@ void nome_jogadores(string &jogador1, string &jogador2) {
 void tela_fim_jogo() {
 	cout << "\t\t\t\t\t=============================";
 	cout << endl;
-	cout << "\t\t\t\t\t||	    FIM DE JOGO		   ||";
+	cout << "\t\t\t\t\t||	    FIM DE JOGO     ||";
 	cout << endl;
 	cout << "\t\t\t\t\t||   Escolha uma opcao:     ||";
 	cout << endl;
@@ -203,7 +206,7 @@ void tela_fim_jogo() {
 
 }
 int main();
-void opcao_jogar_novamente() {
+void opcao_jogar_novamente(char matriz_jogo[TAMANHO][TAMANHO]) {
 
 	int opcao;
 
@@ -219,10 +222,18 @@ void opcao_jogar_novamente() {
 		switch (opcao)
 		{
 		case 1:
-			 main();
+			system("cls");
+			
+			for (int i = 0; i < TAMANHO; i++) {//limpar a matriz para o proximo jogo
+				for (int j = 0; j < TAMANHO; j++) {
+					matriz_jogo[i][j] = ' ';
+				}
+			}
+			main();// jogar novamente
 			break;
 		case 2:
 			system("exit");
+			break;
 		default:
 			cout << endl;
 			cout << "Escolha [1] ou [2]";
@@ -276,8 +287,8 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 						if (verifica_jogo(matriz_jogo) == true) {
 
 							mensagem_ganhador(jogador1);
-							opcao_jogar_novamente();
-							controla_jogo = true;
+							opcao_jogar_novamente(matriz_jogo);
+							controla_jogo= true;
 							return true;
 						}
 
@@ -288,11 +299,12 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 
 					else if (matriz_jogo[linha][coluna] != ' ') {
 						cout << endl;
-						cout << "Posicao ja preenchida";
+						cout << "Posicao ja preenchida" << endl;
+						system("pause");
 						cout << endl;
 						controla_vez = false;
+						controla_jogo = false;
 						
-						return false;
 					}
 
 
@@ -315,7 +327,7 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 						desenha_matriz_jogo(matriz_jogo);
 						if (verifica_jogo(matriz_jogo) == true) {
 							mensagem_ganhador(jogador2);
-							opcao_jogar_novamente();
+							opcao_jogar_novamente(matriz_jogo);
 							controla_jogo = true;
 							return true;
 							
@@ -332,17 +344,18 @@ bool altera_matriz(char matriz_jogo[TAMANHO][TAMANHO]) {
 						cout << endl;
 						
 						controla_vez = true;
-						
+						controla_jogo = false;
 					}
 				}
 
 			}
 			if (velha == 9) {
 
-				cout << " vish mano deu velha!";
+				mensagem_velha();
+				
+				opcao_jogar_novamente(matriz_jogo);
 				controla_jogo = true;
 				return true;
-				opcao_jogar_novamente();
 			}
 
 
