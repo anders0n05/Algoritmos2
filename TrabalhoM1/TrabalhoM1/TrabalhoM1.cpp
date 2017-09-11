@@ -16,7 +16,7 @@ int main()
 	cin >> menu;
 	switch (menu) {
 	case 1:
-		//arrumar esse menu
+		
 		
 		
 		jogar_multiplayer(matriz_jogo);

@@ -392,7 +392,7 @@ void jogar_multiplayer(char matriz_jogo[TAMANHO][TAMANHO]) {
 
 			opcao_jogar_novamente(matriz_jogo);
 			controla_jogo = true;
-			//return true;
+			
 		}
 
 
