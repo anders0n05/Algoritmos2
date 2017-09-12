@@ -1,4 +1,4 @@
-/*
+
 
 #ifndef INTERFACE_USUARIO_H
 #define INTERFACE_USUARIO_H
@@ -43,4 +43,3 @@ void letra_escolhida(char play1, char play2) {RESPONSAVEL POR ATRIBUIR LETRA AO 
 
 
 #endif
-*/

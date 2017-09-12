@@ -24,9 +24,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="interface_usuario.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="funcionamento.h">
       <Filter>Header Files</Filter>
     </ClInclude>
